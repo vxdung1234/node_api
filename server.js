@@ -3,12 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
-const { reqLogger, errLogger } = require('./middleware/logEvents');
-const cors = require('cors');
-const corsOptions = require('./config/corsOptions');
-const credential = require('./middleware/credential');
 const mongoose = require('mongoose');
 const connectDB = require('./config/connectDB');
+const { reqLogger, errLogger } = require('./middleware/logEvents');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const corsOptions = require('./config/corsOptions');
+const credential = require('./middleware/credential');
+
+
 const PORT = process.env.PORT || 3500;
 
 connectDB();
@@ -17,14 +20,18 @@ connectDB();
 app.use(reqLogger);
 app.use(credential);
 app.use(cors(corsOptions));
-
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 
 
 app.use('/', express.static(path.join(__dirname, '.', 'public')));
 
-app.get('^/$|/index(.html)?', (req, res) => {
+app.use('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '.', 'views', 'index.html'));
 });
+
+app.use('/register', require(path.join(__dirname, '.', 'routes', 'registerRoute')));
 
 
 app.all('*', (req, res) => {
