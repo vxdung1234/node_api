@@ -38,6 +38,7 @@ app.use('/logout', require(path.join(__dirname, '.', 'routes', 'logoutRoute')));
 
 // API
 app.use(verifyJWT);
+app.use('/api/users', require(path.join(__dirname, '.', 'routes', 'api', 'users')));
 app.use('/api/employees', require(path.join(__dirname, '.', 'routes', 'api', 'employees')));
 
 app.all('*', (req, res) => {
