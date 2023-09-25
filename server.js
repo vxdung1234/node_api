@@ -4,13 +4,19 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const { reqLogger, errLogger } = require('./middleware/logEvents');
+const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
+const credential = require('./middleware/credential');
 const PORT = process.env.PORT || 3500;
 
 // Logging requests
 app.use(reqLogger);
+app.use(credential);
+app.use(cors(corsOptions));
+
+
 
 app.use('/', express.static(path.join(__dirname, '.', 'public')));
-
 
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '.', 'views', 'index.html'));
