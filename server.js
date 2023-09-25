@@ -33,6 +33,8 @@ app.use('^/$|/index(.html)?', (req, res) => {
 
 app.use('/register', require(path.join(__dirname, '.', 'routes', 'registerRoute')));
 app.use('/login', require(path.join(__dirname, '.', 'routes', 'loginRoute')));
+app.use('/logout', require(path.join(__dirname, '.', 'routes', 'logoutRoute')));
+
 
 app.all('*', (req, res) => {
     res.sendFile(path.join(__dirname, '.', 'views', '404.html'));
