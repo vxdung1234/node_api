@@ -33,7 +33,9 @@ app.use('^/$|/index(.html)?', (req, res) => {
 
 app.use('/register', require(path.join(__dirname, '.', 'routes', 'registerRoute')));
 app.use('/login', require(path.join(__dirname, '.', 'routes', 'loginRoute')));
+app.use('/refresh-token', require(path.join(__dirname, '.', 'routes', 'refreshTokenRoute')));
 app.use('/logout', require(path.join(__dirname, '.', 'routes', 'logoutRoute')));
+
 
 
 app.all('*', (req, res) => {
