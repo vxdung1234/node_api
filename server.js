@@ -7,7 +7,11 @@ const { reqLogger, errLogger } = require('./middleware/logEvents');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const credential = require('./middleware/credential');
+const mongoose = require('mongoose');
+const connectDB = require('./config/connectDB');
 const PORT = process.env.PORT || 3500;
+
+connectDB();
 
 // Logging requests
 app.use(reqLogger);
@@ -30,5 +34,8 @@ app.all('*', (req, res) => {
 // Logging errors
 app.use(errLogger);
 
-// Listen on POST
-app.listen(PORT, console.log(`Server listening on ${PORT}`));
+mongoose.connection.once('open', () => {
+    console.log('Connection to mongoDB');
+    // Listen on POST
+    app.listen(PORT, console.log(`Server listening on ${PORT}`));
+})
