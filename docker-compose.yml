@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  # MongoDB service
+  mongo_db: 
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+
+  api: 
+    build: .
+    ports:
+      - 3500:3500
+    environment:
+      DATABASE_URL: mongodb://mongo_db:27017/CompanyDB
+      ACCESS_TOKEN_SECRET_KEY: 7e43186171641437ccd32d5e25059d40a8c3865b0cd205beb3c8fa4b609df473646a1b2e20bfce7b0f97f11bf31b7dd7fc286318dba8fca9aba9525cb2599fa2
+      REFRESH_TOKEN_SECRET_KEY: f8b0a3792e0b89499039ece518d8707c9db78df840254ed836b7419ca988b1b956d03d7096d9a17d4b78da009831dd8b39e1a449cb63718f22b909eea5ac4139
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}

@@ -7,6 +7,7 @@ const userController = require('../../controllers/userContoller');
 router.route('/')
     .get(verifyRoles(ROLE_LIST.Admin), userController.getAllUsers)
     .put(userController.updateUser);
+    
 router.route('/:id')
     .get(verifyRoles(ROLE_LIST.Admin), userController.getUser)
     .delete(verifyRoles(ROLE_LIST.Admin), userController.deleteUser);

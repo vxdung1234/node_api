@@ -11,8 +11,7 @@ const getUser = async (req, res) => {
         }
         return res.status(200).json({data: user});
     } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
+        res.status(500).json({error: e.message});
     }
 };
 
@@ -24,8 +23,7 @@ const getAllUsers = async (req, res) => {
         }
         res.status(200).json({ data: users });
     } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
+        res.status(500).json({error: e.message});
     }
 };
 
@@ -51,10 +49,9 @@ const updateUser = async (req, res) => {
         if(!result) {
             return res.sendStatus(500);
         }
-        res.status(200).json({message: 'User has been updated'});
+        res.status(200).json({data: result});
     } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
+        res.status(500).json({error: e.message});
     }
 };
 
@@ -71,10 +68,9 @@ const deleteUser = async (req, res) => {
         if(!result) {
             return res.sendStatus(500);
         }
-        res.status(200).json({message: 'Successfully deleted'});
+        res.status(200).json({data: result});
     } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
+        res.status(500).json({error: e.message});
     }
 };
 

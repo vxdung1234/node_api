@@ -11,8 +11,7 @@ const getEmployee = async (req, res) => {
         }
         res.status(200).json({data: employee});
     } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+        res.status(500).json({error: err.message});
     }
 };
 
@@ -24,8 +23,7 @@ const getAllEmployees = async (req, res) => {
         }
         res.status(200).json({data: employees});
     } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+        res.status(500).json({error: err.message});
     }
 };
 
@@ -39,10 +37,9 @@ const createEmployee = async (req, res) => {
         if(!result) {
             return res.sendStatus(500);
         }
-        res.status(200).json({message: `${firstname} ${lastname} has been created`});
+        res.status(200).json({data: result});
     } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+        res.status(500).json({error: err.message});
     }
 };
 
@@ -65,10 +62,9 @@ const updateEmployee = async (req, res) => {
         if(!result) {
             res.sendStatus(500);    
         }
-        res.status(200).json({message: 'Employee has been updated'})
+        res.status(200).json({data: result});
     } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+        res.status(500).json({error: err.message});
     }
 };
 
@@ -85,10 +81,9 @@ const deleteEmployee = async (req, res) => {
         if(!result) {
             return res.sendStatus(500);
         }
-        res.status(200).json({data: employee});
+        res.status(200).json({data: result});
     } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+        res.status(500).json({error: err.message});
     }
 };
 

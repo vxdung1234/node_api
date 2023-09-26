@@ -1,0 +1,104 @@
+### Start
+GET http://localhost:3500/
+
+### Register
+http://localhost:3500/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "1"
+}
+
+### Login with admin
+POST http://localhost:3500/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "1"
+}
+
+### Login with editor
+POST http://localhost:3500/login
+Content-Type: application/json
+
+{
+  "username": "editor",
+  "password": "1"
+}
+
+### Login with user
+POST http://localhost:3500/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "1"
+}
+
+### Get all employees
+GET http://localhost:3500/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE4MTEzLCJleHAiOjE2OTU3MTg0MTN9.oMBoXN3nGIovWdKFBaAAZUnHnSAfNVwOOdMFM4ny6dU
+
+### Create employee
+POST http://localhost:3500/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE3OTc2LCJleHAiOjE2OTU3MTgyNzZ9.qLnx-wjnQ7lgGcmUtXZLv8ZdBlGdmqm84O35ohsZONc
+Content-Type:  application/json
+
+{
+  "firstname": "Dung",
+  "lastname": "Vo"
+}
+
+### Get employee
+GET http://localhost:3500/api/employees/65119548236401d1461a2e69
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE3OTc2LCJleHAiOjE2OTU3MTgyNzZ9.qLnx-wjnQ7lgGcmUtXZLv8ZdBlGdmqm84O35ohsZONc
+
+### Update employee
+PUT http://localhost:3500/api/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE3OTc2LCJleHAiOjE2OTU3MTgyNzZ9.qLnx-wjnQ7lgGcmUtXZLv8ZdBlGdmqm84O35ohsZONc
+Content-Type:  application/json
+
+{
+  "id": "65119548236401d1461a2e69",
+  "firstname": "Dung",
+  "lastname": "Vo"
+}
+
+### Delete employee
+DELETE http://localhost:3500/api/employees/65129473198620b61042d52b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE3OTc2LCJleHAiOjE2OTU3MTgyNzZ9.qLnx-wjnQ7lgGcmUtXZLv8ZdBlGdmqm84O35ohsZONc
+
+### Refresh Access Token by refreshToken
+GET http://localhost:3500/refresh-token
+
+
+### Logout
+GET http://localhost:3500/logout
+
+### Get all Users
+GET http://localhost:3500/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE3OTc2LCJleHAiOjE2OTU3MTgyNzZ9.qLnx-wjnQ7lgGcmUtXZLv8ZdBlGdmqm84O35ohsZONc
+
+### Get all Users
+GET http://localhost:3500/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE5NjUzLCJleHAiOjE2OTU3MTk5NTN9.HBIbmclkeC-SfaHah-Eokz6qUn-52byRV_N40JyfbKM
+
+### Get User
+GET http://localhost:3500/api/users/65115208fb91210df1ec5e2b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzIwNDk0LCJleHAiOjE2OTU3MjA3OTR9.I5Ag3LGTNwHYLljW6cTkIQ8tyqw722cjsqDle0gWJU8
+
+### Update user
+PUT http://localhost:3500/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzIwNDk0LCJleHAiOjE2OTU3MjA3OTR9.I5Ag3LGTNwHYLljW6cTkIQ8tyqw722cjsqDle0gWJU8
+Content-Type:  application/json
+
+{
+  "id": "6511520dfb91210df1ec5e2e",
+  "username": "user1",
+}
+
+### Delete User
+DELETE http://localhost:3500/api/users/65115208fb91210df1ec5e2b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE5NjUzLCJleHAiOjE2OTU3MTk5NTN9.HBIbmclkeC-SfaHah-Eokz6qUn-52byRV_N40JyfbKM
