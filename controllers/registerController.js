@@ -13,9 +13,25 @@ const handleRegister = async (req, res) => {
             return res.status(409).json({ message: 'Duplicate username' });
         }
         const passwordHashed = await bcrypt.hash(password, 10);
+        const role = req.body.role;
+        if (role) {
+            var roles = { 'User': 2001 };
+            switch (role) {
+                case 'Admin':
+                    roles['Admin'] = 5150;
+                    break;
+                case 'Editor':
+                    roles['Editor'] = 1984;
+                    break;
+                default:
+                    break;
+            }
+
+        }
         const result = await User.create({
             username: username,
-            password: passwordHashed
+            password: passwordHashed,
+            roles: roles
         });
         if (!result) {
             return res.sendStatus(500);

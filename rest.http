@@ -7,7 +7,8 @@ Content-Type: application/json
 
 {
   "username": "admin",
-  "password": "1"
+  "password": "1",
+  "role": "Admin"
 }
 
 ### Login with admin
@@ -39,11 +40,11 @@ Content-Type: application/json
 
 ### Get all employees
 GET http://localhost:3500/api/employees
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE4MTEzLCJleHAiOjE2OTU3MTg0MTN9.oMBoXN3nGIovWdKFBaAAZUnHnSAfNVwOOdMFM4ny6dU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzQxNTIyLCJleHAiOjE2OTU3NDE4MjJ9.cB5TQDKPD1KwOe-sppAF9H6flee7bFzgyYsw9O3_O2E
 
 ### Create employee
 POST http://localhost:3500/api/employees
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzE3OTc2LCJleHAiOjE2OTU3MTgyNzZ9.qLnx-wjnQ7lgGcmUtXZLv8ZdBlGdmqm84O35ohsZONc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZXMiOlsyMDAxLDUxNTBdfSwiaWF0IjoxNjk1NzQxNTIyLCJleHAiOjE2OTU3NDE4MjJ9.cB5TQDKPD1KwOe-sppAF9H6flee7bFzgyYsw9O3_O2E
 Content-Type:  application/json
 
 {
